@@ -1,0 +1,36 @@
+﻿<Window x:Class="CStore.Views.Customer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:base="clr-namespace:CStore.ViewModel.Base"
+        Title="Customer" Height="240" Width="526" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Resources/Images/Main.png">
+    <Grid >        
+        <StackPanel Background="LightSteelBlue">
+            <DataGrid Name="CustomerGrid" ItemsSource="{Binding CustomerList}" SelectionMode="Single" SelectionUnit="FullRow"  SelectedItem="{Binding SelectedCustomer}" AutoGenerateColumns="false"
+                              CanUserAddRows="False" CanUserDeleteRows="False" Margin="0,0,0,0" Height="170" Width="500" IsReadOnly="True" RowHeaderWidth="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="CustomerCode" Binding="{Binding CustomerCode}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="100"/>
+                    <DataGridTextColumn Header="ContactNo" Binding="{Binding ContactNo}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Address" Binding="{Binding Address}" IsReadOnly="True" Width="120"/>
+                    <DataGridTextColumn Header="CardDetails" Binding="{Binding CardDetails}" IsReadOnly="True" Width="112"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal">
+                <Button Width="100" Height="25" HorizontalAlignment="Left" Margin="5" Command="{Binding SelectCommand}" ToolTip="Click to Selet the customer">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0,0,0,2" Source="/Resources/Images/customer.png" Width="16" Height="16"  RenderOptions.BitmapScalingMode="HighQuality"/>
+                        <TextBlock Margin="5,0" Text="OK"></TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Button Width="100" Height="25" HorizontalAlignment="Left" Command="{Binding CancelCommand}"  ToolTip="Click to cancel">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Margin="0,0,0,2" Source="/Resources/Images/Close.png" Width="16" Height="16" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        <TextBlock Margin="5,0" Text="Cancel"></TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>
